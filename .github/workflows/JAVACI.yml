@@ -16,6 +16,14 @@ jobs:
                   distribution: "temurin"
             - name: set up gradle
               uses: gradle/actions/setup-gradle@v4
+
+            - name: Find gradlew
+              run: |
+               echo "Searching for gradlew..."
+               find . -name "gradlew" -type f
+               echo ""
+               echo "Current directory contents:"
+               ls -la
             - name: grant execute permission for gradlew
               run: chmod +x ./gradlew
             - name: build with gradle
